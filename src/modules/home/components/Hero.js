@@ -1,9 +1,12 @@
-import { useThreadViewStore } from "@/store/threadsViewStore";
-import useStore from "@/store/useStore";
+import useViewOption from "@/hooks/useViewOption";
 import Image from "next/image";
 
 const Hero = () => {
-	const viewOption = useStore(useThreadViewStore, (state) => state.viewOption);
+	const { viewOption, isLoaded } = useViewOption();
+
+	if (!isLoaded) return null;
+
+	const maxWidthClass = viewOption === "card" ? "max-w-4xl" : "max-w-6xl";
 
 	return (
 		<>
@@ -15,11 +18,7 @@ const Hero = () => {
 				}}
 			></div>
 			<div className="bg-white px-5 sm:px-0">
-				<div
-					className={`flex items-start mx-auto py-4 gap-4 ${
-						viewOption === "card" ? "max-w-4xl" : "max-w-6xl"
-					}`}
-				>
+				<div className={`flex items-start mx-auto py-4 gap-4 ${maxWidthClass}`}>
 					<div className="min-w-max -mt-10 bg-white rounded-full">
 						<Image
 							src="https://programming.dev/pictrs/image/8140dda6-9512-4297-ac17-d303638c90a6.png?format=webp"
