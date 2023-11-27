@@ -18,6 +18,13 @@ const CommentList = ({ post_id }) => {
 			</div>
 		);
 
+	if (!comments.length)
+		return (
+			<div className="bg-white flex justify-center py-3 text-neutral-600 text-sm">
+				No Comment.
+			</div>
+		);
+
 	return (
 		<div className="flex flex-col gap-5 border bg-white rounded p-3">
 			{comments.map((comment, index) => (

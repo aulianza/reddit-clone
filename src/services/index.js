@@ -26,6 +26,7 @@ export const getThreadDetail = async (postId) => {
 		const response = await axiosInstance.get(`${BASE_URL}post?id=${postId}`);
 		return response?.data;
 	} catch (error) {
+		console.error("Error:", error.response?.data);
 		throw new Error(error.message);
 	}
 };

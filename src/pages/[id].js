@@ -22,6 +22,7 @@ export async function getServerSideProps(context) {
 
 	try {
 		const data = await getThreadDetail(postId);
+		console.log("aulianza ~ getServerSideProps ~ data : ", data);
 
 		return {
 			props: {

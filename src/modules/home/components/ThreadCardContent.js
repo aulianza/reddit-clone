@@ -15,8 +15,6 @@ import Image from "next/image";
 const iconSize = 22;
 
 const ThreadCardContent = ({ post, counts, creator, isDetailPage = false }) => {
-	console.log("aulianza ~ ThreadCardContent ~ post : ", post);
-
 	const viewOption = useStore(useThreadViewStore, (state) => state.viewOption);
 
 	return (
