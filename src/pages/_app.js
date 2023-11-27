@@ -2,6 +2,11 @@ import Layout from "@/components/layouts";
 import { soraSans } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+import dynamic from "next/dynamic";
+
+const ProgressBar = dynamic(() => import("src/components/ProgressBar"), {
+	ssr: false,
+});
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -25,6 +30,7 @@ export default function App({ Component, pageProps }) {
 			</style>
 			<QueryClientProvider client={queryClient}>
 				<Layout>
+					<ProgressBar />
 					<Component {...pageProps} />
 				</Layout>
 			</QueryClientProvider>

@@ -9,3 +9,13 @@
 body {
 	background: var(--background);
 }
+
+#nprogress .bar {
+	background: #000 !important;
+	height: 2px !important;
+	z-index: 9999999 !important;
+}
+
+#nprogress .bar {
+	position: fixed !important;
+}
