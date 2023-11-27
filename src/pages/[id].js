@@ -21,7 +21,15 @@ export async function getServerSideProps(context) {
 	const postId = context?.query?.id;
 
 	try {
-		const data = await getThreadDetail(postId);
+		// const data = await getThreadDetail(postId);
+		const res = await fetch(`https://programming.dev/api/v3/post?id=${postId}`);
+		const data = await res.json();
+
+		if (!data) {
+			return {
+				notFound: true,
+			};
+		}
 
 		return {
 			props: {
