@@ -20,12 +20,3 @@ export const useGetComments = (params) => {
 		axiosInstance.get(BASE_URL + "comment/list", { params })
 	);
 };
-
-export const getThreadDetail = async (postId) => {
-	try {
-		const response = await axiosInstance.get(`${BASE_URL}post?id=${postId}`);
-		return response?.data;
-	} catch (error) {
-		throw new Error(error.message);
-	}
-};
