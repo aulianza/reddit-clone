@@ -1,22 +1,7 @@
 import moment from "moment";
 
 export const formatDate = (date) => {
-	const currentDate = moment();
-	const diff = moment.duration(currentDate.diff(date));
-
-	if (diff.asSeconds() < 60) {
-		return `${Math.floor(diff.asSeconds())} seconds ago`;
-	} else if (diff.asMinutes() < 60) {
-		return `${Math.floor(diff.asMinutes())} minutes ago`;
-	} else if (diff.asHours() < 24) {
-		return `${Math.floor(diff.asHours())} hours ago`;
-	} else if (diff.asDays() < 30) {
-		return `${Math.floor(diff.asDays())} days ago`;
-	} else if (diff.asMonths() < 12) {
-		return `${Math.floor(diff.asMonths())} months ago`;
-	} else {
-		return `${Math.floor(diff.asYears())} years ago`;
-	}
+	return moment(date).fromNow();
 };
 
 export const generateNestedComments = (commentsRes) => {

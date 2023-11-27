@@ -10,7 +10,7 @@ const ThreadDetailPage = ({ data }) => {
 	return (
 		<>
 			<NextSeo title={`${title} - ${DESCRIPTION}`} description={DESCRIPTION} />
-			<ThreadDetail data={data} />;
+			<ThreadDetail data={data} />
 		</>
 	);
 };
@@ -22,7 +22,6 @@ export async function getServerSideProps(context) {
 
 	try {
 		const data = await getThreadDetail(postId);
-		console.log("aulianza ~ getServerSideProps ~ data : ", data);
 
 		return {
 			props: {
