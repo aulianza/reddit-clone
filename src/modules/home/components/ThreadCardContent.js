@@ -10,10 +10,13 @@ import { FaRegCommentAlt as CommentsIcon } from "react-icons/fa";
 import { formatCount, formatDate } from "@/helpers";
 import useStore from "@/store/useStore";
 import { useThreadViewStore } from "@/store/threadsViewStore";
+import Image from "next/image";
 
 const iconSize = 22;
 
 const ThreadCardContent = ({ post, counts, creator, isDetailPage = false }) => {
+	console.log("aulianza ~ ThreadCardContent ~ post : ", post);
+
 	const viewOption = useStore(useThreadViewStore, (state) => state.viewOption);
 
 	return (
@@ -43,6 +46,14 @@ const ThreadCardContent = ({ post, counts, creator, isDetailPage = false }) => {
 					className="hover:text-blue-500 cursor-pointer"
 				/>
 			</div>
+			{!isDetailPage && post?.thumbnail_url && viewOption === "list" && (
+				<Image
+					src={post?.thumbnail_url}
+					alt={post?.name}
+					width="100"
+					height="100"
+				/>
+			)}
 			<div
 				className={`flex flex-col gap-2 p-3 flex-grow ${
 					!isDetailPage && viewOption === "compact"
@@ -60,6 +71,14 @@ const ThreadCardContent = ({ post, counts, creator, isDetailPage = false }) => {
 					<p className="whitespace-pre-line py-2 text-neutral-800 text-[15px]">
 						{post?.body}
 					</p>
+				)}
+				{(isDetailPage || viewOption === "card") && post?.thumbnail_url && (
+					<Image
+						src={post?.thumbnail_url}
+						alt={post?.name}
+						width="300"
+						height="300"
+					/>
 				)}
 				{(isDetailPage || viewOption !== "compact") && (
 					<div className="flex items-center gap-2 text-[13px] text-neutral-600">

@@ -1,8 +1,18 @@
 import ThreadDetail from "@/modules/home/components/ThreadDetail";
 import { getThreadDetail } from "@/services";
+import { NextSeo } from "next-seo";
+
+const DESCRIPTION = "Reddit Clone - by Ryan Aulia";
 
 const ThreadDetailPage = ({ data }) => {
-	return <ThreadDetail data={data} />;
+	const title = data?.post_view?.post?.name ?? "";
+
+	return (
+		<>
+			<NextSeo title={`${title} - ${DESCRIPTION}`} description={DESCRIPTION} />
+			<ThreadDetail data={data} />;
+		</>
+	);
 };
 
 export default ThreadDetailPage;

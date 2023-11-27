@@ -20,7 +20,7 @@ const Hero = () => {
 						viewOption === "card" ? "max-w-4xl" : "max-w-6xl"
 					}`}
 				>
-					<div className="min-w-max -mt-10">
+					<div className="min-w-max -mt-10 bg-white rounded-full">
 						<Image
 							src="https://programming.dev/pictrs/image/8140dda6-9512-4297-ac17-d303638c90a6.png?format=webp"
 							alt="Programming Humor"

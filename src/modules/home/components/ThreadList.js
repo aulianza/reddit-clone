@@ -8,7 +8,7 @@ const ThreadList = ({ data, onLimit }) => {
 	const gap = viewOption === "card" ? "gap-3" : "gap-0";
 
 	return (
-		<div className={`flex flex-col gap-3 ${gap}`}>
+		<div className={`flex flex-col ${gap}`}>
 			{data?.map((item, index) => (
 				<ThreadCardItem
 					key={index}

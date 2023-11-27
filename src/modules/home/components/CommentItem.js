@@ -18,12 +18,13 @@ const CommentItem = ({
 		<div className="flex items-start gap-3">
 			<Image
 				src={
+					creator?.avatar ??
 					"https://programming.dev/static/68330f7/assets/icons/icon-96x96.png"
 				}
 				alt={creator?.name}
 				width={30}
 				height={30}
-				className="w-max rounded-full bg-neutral-100 p-2 border"
+				className="w-max rounded-full bg-neutral-100 border"
 			/>
 			<div className="flex flex-col gap-2">
 				<div className="flex gap-1 text-neutral-500 text-xs">

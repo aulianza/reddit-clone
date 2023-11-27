@@ -30,7 +30,7 @@ export const generateNestedComments = (commentsRes) => {
 			id: comment?.id,
 			content: comment?.content,
 			counts: { score: counts?.score },
-			creator: { name: creator?.name },
+			creator: { name: creator?.name, avatar: creator?.avatar },
 			published: comment?.published,
 			children: [],
 		};
